@@ -1,0 +1,221 @@
+Databse: collection of data in a format that can be easily accessed (digital)
+A software app used to manage our db is called DBMS. (Database Management System)
+
+user -- DBMS -- DB
+
+Types of DB:
+Relational (RDBMS) - data stored in tables  (We use SQL to work with RDBMS) mysql,oracle,sql server, postgre sql
+Non relational (NoSQL) - not stored in tables (mongodb)
+
+SQL: Structured query language 
+programming language used to interact with relational databases
+
+used to perform CRUD operations:
+Create, Read, Update, Delete
+
+Database contain tables
+Tables have data (inter related)
+college -> student, fees, courses
+company -> emp, dept, salary
+
+Tables have rows and columns
+columns define structure/schema
+rows define individual data
+
+Creating first database:-
+
+CREATE DATABASE db_name;
+
+DROP DATABASE db_name; --> delete the database
+
+---------------------------------------------------------------------------------------------
+create database college;
+
+use college;
+
+creating first table:
+USE db_name;
+
+CREATE TABLE table_name (
+	col_1 dtype constraint,
+	col_2 dtype constraint,
+	col_3 dtype constraint
+);
+
+CREATE TABLE student(
+	id INT PRIMARY KEY,
+	name VARCHAR(50),
+	age INT NOT NULL
+);
+
+
+INSERT INTO student VALUES(1,"Aman",26);
+INSERT INTO student VALUES(2,"Ayan",24);
+
+
+SELECT * FROM student;
+
+
+Datatypes:-
+CHAR can store characters of fixed length (0-255)
+VARCHAR store characters up to given length (0-255)
+BLOB sting(0 - 65535) store binary large object
+INT integer (-ve and +ve)
+TINYINT integer(-128 -> 127)
+BIGINT integer
+BIT (x bit values, x can range from 1-64)
+FLOAT (decimal number)
+DOUBLE 
+BOOLEAN (0 / 1)
+DATE in format YYYY-MM-DD
+YEAR 4 digit format
+
+
+Signed and Unsigned:
+signed -> -ve and +ve values 
+unsigned -> only +ve (like age and salary)
+
+Types of SQL commands:-
+DDL -> Data definition language: create, alter, rename, truncate & drop
+DQL -> - Query - : select
+DML -> - Manipulation - :- insert, update, delete
+DCL -> - Control - :- grant and revoke permission to the users 
+TCL -> Transaction Truncate Language: start transaction, commit, rollback
+
+Databse related queries:-
+CREATE DATABASE db_name;
+CREATE DATABASE IF NOT EXISTS db_name;
+CREATE DATABASE IF NOT EXISTS college;
+
+DROP DATABASE db_name;
+DROP DATABASE IF EXISTS db_name;
+
+SHOW DATABASES;
+SHOW TABLES;
+
+
+Table related queries:-
+
+CREATE TABLE table_name (
+	col_1 dtype constraint,
+	col_2 dtype constraint,
+	col_3 dtype constraint
+);
+
+CREATE TABLE student(
+	id INT PRIMARY KEY,
+	name VARCHAR(50),
+	age INT NOT NULL
+);
+
+view all columns:-
+SELECT * from table_name;
+
+insert:
+INSERT INTO table_name (col1, col2) VALUES (col1_v1, col2_v1)
+
+Keys:-
+Primary Key:-- It is a column/set of columns in a table that uniquely identifies each row.
+There is only 1 PK and it should not be null
+
+Foreign Key:-- It is a column/set that refers to the primary key of another table.
+There can be multiple FKs. (can have duplicate and null values)
+
+Constraints:
+used to specify rules for data in a table.
+NOT NULL - col cannot have null value
+UNIQUE - all values in column r diff
+PRIMARY KEY makes a column unique and not null but used only for one
+
+id INT PRIMARY KEY
+
+CREATE TABLE temp (
+	id int not null,
+	PRIMARY KEY (id)
+)
+
+Foreign KEY prevent actions that would destroy links between tables
+CREATE TABLE temp(
+	cust_id int,
+	FOREIGN KEY (cust_id) references customer(id)
+);
+
+DEFAULT sets the default value of a column
+salary INT DEFAULT 25000
+
+CHECK: it can limit the values allowed in a column
+
+CREATE TABLE city(
+ id INT PRIMARY KEY,
+ city VARCHAR(50),
+ age INT,
+ CONSTRAINT age_check CHECK (age>=18 AND city="Delhi")
+);
+
+CREATE TABLE newTAB (
+ age INT CHECK (age >=18)
+);
+
+
+SELECT in detail:-
+used to select any data from table
+
+Basic syntax:- SELECT col1,col2 FROM table_name;
+
+to select all:- SELECT * FROM table_name
+
+
+Where CLause:-
+to define some conditions
+SELECT col1, col2 FROM table_name WHERE conditions;
+
+SELECT * FROM student WHERE marks > 80;
+SELECT * FROM student WHERE city = "Mumbai";
+
+using operators in where:
+Arithmetic Operators: +,-,*,/, % (modulus)
+Comparision : =, !=, >, >=, <, <=
+Logical: AND, OR, NOT, IN BETWEEN, ALL, LIKE, ANY
+BitwiseL &, | (Bitwise OR)    
+
+AND to check for both conditions to be true
+SELECT * FROM student WHERE marks > 80 AND city = "Mumbai";
+
+OR to check for one of the condition to be true
+SELECT * FROM student WHERE marks > 80 OR city = "Mumbai";
+
+BETWEEN selects for a given range
+SELECT * FROM student WHERE marks BETWEEN 80 AND 90;
+
+IN matches any value in the list 
+SELECT * FROM student WHERE city IN ("Delhi","Mumbai");
+
+NOT to negate the given condition
+SELECT * FROM student WHERE city NOT IN ("Delhi","Mumbai");
+
+Limit clause:-
+sets an upper limit on number of rows to be returned
+
+SELECT * FROM student LIMIT 3;
+
+Order By Clause:-
+to sort ascending or descending order
+SELECT * FROM student ORDER BY city ASC;
+
+Aggregate func:
+perform a calculation on a set of values, and returning a single value
+COUNT() MAX() MIN() SUM() AVG()
+
+get max marks-> SELECT MAX(marks) from student;
+
+get avg marks -> select avg(marks) from student;
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,51 @@
+create database college;
+
+DROP DATABASE IF EXISTS company;
+
+use college;
+
+create table student (
+ rollno INT PRIMARY KEY,
+ name VARCHAR(50)
+);
+
+select * from student;
+INSERT INTO student VALUES(1,"Aman");
+INSERT INTO student VALUES(2,"Ayan");
+INSERT INTO student VALUES(3,"Ram");
+
+
+DROP TABLE STUDENT;
+
+INSERT INTO student VALUES(1,"Aman",26);
+INSERT INTO student VALUES(2,"Ayan",24);
+
+
+SELECT * FROM student;
+
+SHOW DATABASES;
+SHOW TABLES;
+
+create table temp1(
+	id INT PRIMARY KEY
+);
+
+INSERT INTO temp1 VALUES (101); 
+INSERT INTO temp1 VALUES (101); 
+
+select * from temp1;
+
+CREATE TABLE emp(
+ id int,
+ salary int default 25000
+);
+
+insert into emp (id) values(101);
+
+select * from emp;
+
+
+
+
+
+

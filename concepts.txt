@@ -1,0 +1,29 @@
+DBMS 
+
+Data -> bits/bytes computers store the data
+collection of raw bytes
+image,text.number,symbol - collection of bytes
+
+Data -> process -> meaning -> information
+
+Data is the new oil
+
+Database -> storage 
+
+DBMS - set of programs (acess, add, update, delete ) helps in processing ofthe data  
+
+Abstraction -> system simplified to the user --> DBMS Will apply
+1. Car driving
+2. Tally
+
+provides diiferent view to each user
+3 Schema (Design) Architecture:-
+
+Physical level:-> F.B -> Profile Picture -> collection of pixels(bytes)
+logical level:-> logical representaton of the data
+(Conceptual level) _> Student -> name,phno,address,batchno
+physical level:
+name,phno,add,batch -> Stu 1
+.................. ->  stu 2
+
+file 1
