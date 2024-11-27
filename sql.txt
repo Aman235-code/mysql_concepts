@@ -211,6 +211,77 @@ get max marks-> SELECT MAX(marks) from student;
 get avg marks -> select avg(marks) from student;
 
 
+Group By Clause:-
+groups rows that have the same values into summary rows.
+It collects data from multiple records and groups result by one or more column.
+
+Generally we use group by with some aggregate function.
+
+Count no of students in each city:
+
+SELECT city, count(name) from student GROUP BY city;
+
+Having Clause:-
+similar to where i.e applies some condition on rows.
+Used when we want to apply any condition after grouping
+
+count no of students in each city where max marks cross 90.
+
+select count(name), city from student group by city having max(marks) > 90;
+
+General Order:-
+SELECT column(c)
+FROM table_name
+WHERE condition
+GROUP BY column(s)
+HAVING condition
+ORDER BY column(s) ASC;
+
+
+Table related queries:
+Update existing rows
+
+UPDATE table_name SET col1=val1, col2=val2 WHERE condition;
+
+Update student SET grade = "O" WHERE grade = "A";
+
+SET SQL_SAFE_UPDATES=0; --> TURN OFF SAFE MODE
+Delete to delete existig rows
+
+DELETE FROM table_name WHERE condition;
+DELETE FROM student WHERE amrks < 33;
+
+Revisiting FK:-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
